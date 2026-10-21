@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JPCスポーツ教室 イオンタウン鵜沼店 | 体幹特化・少人数指導</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue:   #2E9BDA;
+    --orange: #F5832A;
+    --green:  #5BBB6A;
+    --navy:   #1A2F5C;
+    --white:  #FFFFFF;
+    --light:  #F0F8FF;
+    --text:   #2C2C2C;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--navy);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  header .site-name {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: .03em;
+    line-height: 1.3;
+  }
+
+  header nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  header nav a {
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,.35);
+    transition: background .2s, border-color .2s;
+  }
+
+  header nav a:hover { background: rgba(255,255,255,.15); border-color: var(--white); }
+
+  header nav a.cta-nav {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--white);
+  }
+
+  header nav a.cta-nav:hover { background: #d96e1a; border-color: #d96e1a; }
+
+  /* ── HERO IMAGE ── */
+  .hero-img-wrap {
+    width: 100%;
+    max-height: 520px;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .hero-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── HERO TEXT ── */
+  .hero-text {
+    background: linear-gradient(135deg, var(--navy) 0%, #2356a0 100%);
+    padding: 48px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-text::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-text .bubble {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: .78rem;
+    font-weight: 900;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    letter-spacing: .08em;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+
+  .hero-text h1 em {
+    font-style: normal;
+    color: #FFC94D;
+  }
+
+  .hero-text p {
+    font-size: clamp(.9rem, 2.5vw, 1.05rem);
+    color: rgba(255,255,255,.88);
+    line-height: 1.75;
+    max-width: 600px;
+    margin: 0 auto 28px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(245,131,42,.45);
+    transition: transform .2s, box-shadow .2s;
+    letter-spacing: .04em;
+  }
+
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(245,131,42,.5); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 64px 20px; }
+
+  .sec-inner { max-width: 860px; margin: 0 auto; }
+
+  .sec-title {
+    font-size: clamp(1.3rem, 4vw, 1.85rem);
+    font-weight: 900;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .sec-title span { color: var(--orange); }
+
+  .sec-sub {
+    text-align: center;
+    font-size: .9rem;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  /* ── FEATURES (イチオシ) ── */
+  .features { background: var(--light); }
+
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .feat-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 24px;
+    border-top: 5px solid var(--blue);
+    box-shadow: 0 4px 16px rgba(0,0,0,.07);
+  }
+
+  .feat-card:nth-child(2) { border-top-color: var(--orange); }
+  .feat-card:nth-child(3) { border-top-color: var(--green); }
+  .feat-card:nth-child(4) { border-top-color: #9b59b6; }
+  .feat-card:nth-child(5) { border-top-color: #e74c3c; }
+
+  .feat-icon {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .feat-card h3 {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .feat-card p {
+    font-size: .86rem;
+    line-height: 1.7;
+    color: #555;
+  }
+
+  /* ── STRENGTHS ── */
+  .strengths { background: var(--white); }
+
+  .str-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .str-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .str-num {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .str-item:nth-child(2) .str-num { background: var(--orange); }
+  .str-item:nth-child(3) .str-num { background: var(--green); }
+
+  .str-body h3 { font-size: .95rem; font-weight: 900; color: var(--navy); margin-bottom: 5px; }
+  .str-body p  { font-size: .84rem; color: #555; line-height: 1.65; }
+
+  /* ── REVIEWS ── */
+  .reviews { background: #FFF8F2; }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .review-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 3px 14px rgba(0,0,0,.07);
+  }
+
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: 10px; left: 16px;
+    font-size: 4rem;
+    color: var(--orange);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: .25;
+  }
+
+  .stars { color: #F5A623; font-size: 1.1rem; margin-bottom: 10px; }
+
+  .review-card p {
+    font-size: .86rem;
+    line-height: 1.75;
+    color: #555;
+  }
+
+  /* ── STORY ── */
+  .story { background: var(--navy); color: var(--white); }
+
+  .story .sec-title { color: var(--white); }
+  .story .sec-title span { color: #FFC94D; }
+
+  .story-body {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .story-body .icon { font-size: 3rem; margin-bottom: 16px; display: block; }
+
+  .story-body p {
+    font-size: .95rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,.85);
+  }
+
+  /* ── COMING SOON ── */
+  .coming {
+    background: linear-gradient(120deg, #e3f2fd, #e8f5e9);
+    text-align: center;
+  }
+
+  .coming-badge {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white);
+    font-size: .8rem;
+    font-weight: 900;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .coming p {
+    font-size: .95rem;
+    line-height: 1.75;
+    color: var(--text);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--orange);
+    padding: 56px 20px;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-size: clamp(1.3rem, 4vw, 1.9rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,.9);
+    margin-bottom: 28px;
+    font-size: .95rem;
+    line-height: 1.7;
+  }
+
+  .btn-white {
+    display: inline-block;
+    background: var(--white);
+    color: var(--orange);
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 16px 38px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: .04em;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,.15);
+  }
+
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+
+  /* ── INFO ── */
+  .info { background: var(--light); }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  @media(max-width: 480px) { .info-grid { grid-template-columns: 1fr; } }
+
+  .info-row { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed #C8DFF0; }
+  .info-label { font-size: .78rem; font-weight: 700; color: var(--blue); white-space: nowrap; min-width: 72px; }
+  .info-val   { font-size: .88rem; color: var(--text); line-height: 1.6; }
+  .info-val a { color: var(--blue); text-decoration: none; }
+  .info-val a:hover { text-decoration: underline; }
+
+  /* MAP */
+  .map-wrap { max-width: 700px; margin: 0 auto; }
+  .map-wrap iframe { width: 100%; border-radius: 16px; }
+  .map-link-wrap { text-align: center; margin-top: 14px; }
+
+  .btn-map {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    font-size: .9rem;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+
+  .btn-map:hover { background: #1a7db5; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 36px 20px;
+    text-align: center;
+    color: rgba(255,255,255,.7);
+  }
+
+  footer .foot-logo {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  footer .foot-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-bottom: 18px;
+  }
+
+  footer .foot-links a {
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    font-size: .82rem;
+    transition: color .2s;
+  }
+
+  footer .foot-links a:hover { color: var(--white); }
+
+  footer .sns-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  footer .sns-row a img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    filter: brightness(.85);
+    transition: filter .2s;
+  }
+
+  footer .sns-row a:hover img { filter: brightness(1); }
+
+  footer small { font-size: .75rem; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 600px) {
+    .hero-text { padding: 36px 16px 52px; }
+    header { padding: 12px 14px; }
+    header .site-name { font-size: .9rem; }
+    .feat-grid, .str-list, .review-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://jpc-sports.com/unuma/" target="_blank" rel="noopener" class="site-name">
+    🏅 JPCスポーツ教室<br>イオンタウン鵜沼店
+  </a>
+  <nav>
+    <a href="https://jpc-sports.com/unuma/" target="_blank" rel="noopener">公式HP</a>
+    <a href="https://jpc-sports.com/unuma/corp-contact/" target="_blank" rel="noopener">お問い合わせ</a>
+    <a href="https://line.me/R/ti/p/@781cheba?oat_content=url&ts=07121501" target="_blank" rel="noopener" class="cta-nav">🎉 無料体験</a>
+  </nav>
+</header>
+
+<!-- HERO IMAGE -->
+<div class="hero-img-wrap">
+  <img src="images/hero.jpg" alt="JPCスポーツ教室 イオンタウン鵜沼店">
+</div>
+
+<!-- HERO TEXT -->
+<div class="hero-text">
+  <div class="bubble">✨ 体幹特化</div>
+  <h1>動くことが<em>大好き</em>になる！<br>子どものための体幹スポーツ教室</h1>
+  <p>「遊び」を通じてカラダを動かしながら、姿勢・体幹・運動能力の基礎をぐんぐん育てます。運動が苦手な子も大歓迎！</p>
+  <a href="https://line.me/R/ti/p/@781cheba?oat_content=url&ts=07121501" target="_blank" rel="noopener" class="btn-primary">🎁 無料体験レッスンに申し込む</a>
+</div>
+
+<!-- FEATURES (イチオシ) -->
+<section class="features">
+  <div class="sec-inner">
+    <h2 class="sec-title"><span>JPCスポーツ教室</span>が選ばれる理由</h2>
+    <p class="sec-sub">独自プログラムで、子どもの「できた！」を増やし続けます。</p>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <span class="feat-icon">🧘</span>
+        <h3>体幹に特化した指導</h3>
+        <p>マット・跳び箱などの器械体操に加え、トップアスリートも実践する「KOBA☆トレ」を取り入れた体幹トレーニングを実施しています。</p>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">🎮</span>
+        <h3>「遊び」が学びになる環境</h3>
+        <p>コーチが遊びの要素を交えながら指導するため、運動が苦手な子も「体を動かすことが大好き」になれるプログラムです。</p>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">⚽</span>
+        <h3>他スポーツへの波及効果</h3>
+        <p>体幹を鍛えることで正しい体の使い方を学び、サッカーなど他の競技でのパフォーマンス向上にも繋がります。</p>
+      </div>
+
+      <div class="feat-card">
+        <span class="feat-icon">👩</span>
+        <h3>女性専用クラス</h3>
+        <p>女性専用の体幹トレーニングクラスをご用意。健康維持やボディメイクなど、目的に合わせて通えます。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="strengths">
+  <div class="sec-inner">
+    <h2 class="sec-title">3つの<span>強み</span></h2>
+    <p class="sec-sub">子どもも大人も、安心して通える環境を整えています。</p>
+    <div class="str-list">
+
+      <div class="str-item">
+        <div class="str-num">1</div>
+        <div class="str-body">
+          <h3>体幹トレーニング重視</h3>
+          <p>遊びの要素を取り入れながら、一生モノの姿勢と運動能力の基礎を作る体幹強化に特化しています。</p>
+        </div>
+      </div>
+
+      <div class="str-item">
+        <div class="str-num">2</div>
+        <div class="str-body">
+          <h3>丁寧な指導</h3>
+          <p>一人ひとりのレベルに合わせたきめ細かなサポートで、運動が苦手な子でも自信をつけていけます。</p>
+        </div>
+      </div>
+
+      <div class="str-item">
+        <div class="str-num">3</div>
+        <div class="str-body">
+          <h3>通いやすい好立地</h3>
+          <p>イオンタウン内にあるため駐車場が広く、買い物のついでに送迎ができる便利な環境です。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="sec-inner">
+    <h2 class="sec-title">保護者の方からの<span>クチコミ</span></h2>
+    <p class="sec-sub">通ってくださっている方のリアルな声をご紹介します。</p>
+    <div class="review-grid">
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>今年の春から兄弟で始めました。鉄棒やとび箱が苦手でしたが、レッスンの後は家でも練習したり、楽しんでやるようになりました。下の子はまだまだ集中してできないことが多いですが、いつも粘り強く教えていただきありがとうございます。</p>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>５歳の子どもが毎回楽しそうに走り回ったりコーチに丁寧に指導して頂いて入会して本当に良かったです。鉄棒も前回りや、マット運動もできるので とてもありがたいです。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="sec-inner">
+    <h2 class="sec-title">創業者の<span>想い</span></h2>
+    <div class="story-body">
+      <span class="icon">👨‍👧‍👦</span>
+      <p>JPCスポーツ教室を創業したのは、株式会社J-PRoach代表取締役・髙木宏昌。4児の父親として「子ども達が楽しみながら成長できる空間を構築したい」という思いからスタートしました。<br><br>子ども自身が成長を掴み取れる環境づくりを大切にし、「遊び」を通して体を動かしながら、考える力やコミュニケーション力を育むことを目指しています。岐阜県羽島市から始まった取り組みは、現在全国へと広がっています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="coming">
+  <div class="sec-inner" style="text-align:center;">
+    <div class="coming-badge">🔜 準備中サービス</div>
+    <h2 class="sec-title" style="margin-bottom:14px;">WAON POINT が<span>貯まる・使える！</span></h2>
+    <p>受講料やショップ利用でWAON POINTが貯まり・使える仕組みを準備中です。イオンタウンならではのお得な特典にご期待ください！</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>🎉 まずは無料体験レッスンへ！</h2>
+  <p>お子さんの「楽しい！」を一緒に見つけましょう。<br>ご予約はLINEから簡単に申し込めます。</p>
+  <a href="https://line.me/R/ti/p/@781cheba?oat_content=url&ts=07121501" target="_blank" rel="noopener" class="btn-white">🎁 無料体験に申し込む（LINE）</a>
+</div>
+
+<!-- INFO -->
+<section class="info">
+  <div class="sec-inner">
+    <h2 class="sec-title">教室<span>情報</span></h2>
+    <p class="sec-sub" style="margin-bottom:28px;">お気軽にお問い合わせください。</p>
+
+    <div class="info-grid">
+      <div class="info-row">
+        <span class="info-label">教室名</span>
+        <span class="info-val">JPCスポーツ教室<br>イオンタウン鵜沼店</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">住所</span>
+        <span class="info-val">〒509-0132<br>岐阜県各務原市鵜沼西町３丁目３０９</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">電話</span>
+        <span class="info-val"><a href="tel:0582005758">058-200-5758</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">休校日</span>
+        <span class="info-val">日曜・祝日<br>（祝日営業日あり）</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">公式HP</span>
+        <span class="info-val"><a href="https://jpc-sports.com/unuma/" target="_blank" rel="noopener">jpc-sports.com/unuma</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">お問い合わせ</span>
+        <span class="info-val"><a href="https://jpc-sports.com/unuma/corp-contact/" target="_blank" rel="noopener">お問い合わせフォーム</a></span>
+      </div>
+    </div>
+
+    <!-- MAP -->
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3252.1777304541924!2d136.93563120000002!3d35.400844899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60030f1a47309adf%3A0x787c6f54d24d755f!2zSlBD44K544Od44O844OE5pWZ5a6k44Kk44Kq44Oz44K_44Ku44Oz6bWc5rK85bqX!5e0!3m2!1sja!2sjp!4v1792213129146!5m2!1sja!2sjp" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div class="map-link-wrap">
+        <a href="https://www.google.com/maps/place/JPC%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E6%95%99%E5%AE%A4%E3%82%A4%E3%82%AA%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3%E9%B5%9C%E6%B2%BC%E5%BA%97/@35.4008449,136.9356312,17z/data=!3m1!4b1!4m6!3m5!1s0x60030f1a47309adf:0x787c6f54d24d755f!8m2!3d35.4008449!4d136.9356312!16s%2Fg%2F11y334v91c?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-map">📍 Googleマップで見る</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="foot-logo">🏅 JPCスポーツ教室 イオンタウン鵜沼店</span>
+  <div class="foot-links">
+    <a href="https://jpc-sports.com/unuma/" target="_blank" rel="noopener">公式サイト</a>
+    <a href="https://jpc-sports.com/unuma/corp-contact/" target="_blank" rel="noopener">お問い合わせ</a>
+    <a href="https://line.me/R/ti/p/@781cheba?oat_content=url&ts=07121501" target="_blank" rel="noopener">無料体験申込</a>
+  </div>
+  <div class="sns-row">
+    <a href="https://www.instagram.com/jpc_unuma/" target="_blank" rel="noopener" aria-label="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/240px-Instagram_icon.png" alt="Instagram">
+    </a>
+  </div>
+  <small>&copy; 株式会社J-PRoach / JPCスポーツ教室 イオンタウン鵜沼店</small>
+</footer>
+
+</body>
+</html>
